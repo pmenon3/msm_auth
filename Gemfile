@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
+gem 'devise'
+##this gem is for authentication of a user
 
+gem 'bcrypt', platforms: :ruby
 gem 'starter_generators', :git => "http://github.com/rbetina/starter_generators.git"
 
 gem 'kaminari'
@@ -23,7 +26,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+gem 'bcyrpt', platforms: :ruby
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

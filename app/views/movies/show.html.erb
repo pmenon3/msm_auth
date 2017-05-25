@@ -1,6 +1,37 @@
 <div class="page-header">
   <h3>Movie #<%= @movie.id %></h3>
+  <!-- start of add a bookmark -->
+
+  <div class="row">
+    <div class="col-md-12">
+      <form action="/create_bookmark" method="post">
+        <!-- Hidden input for authenticity token to protect from forgery -->
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+        <!-- Label and input for user_id -->
+        <div class="form-group">
+          <!-- <label for="user_id" class="control-label">
+          User
+        </label> -->
+
+        <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
+      </div>
+
+      <!-- Label and input for movie_id -->
+      <div class="form-group">
+        <input type="hidden" id="movie_id" name="movie_id" placeholder="Movie" class="form-control" value="<%= @movie.id %>">
+      </div>
+      <button class="btn btn-success">
+        Bookmark This Movie
+      </button>
+
+    </div>
+  </div>
+
+
+
 </div>
+<!-- end of add a bookmark -->
 
 <div class="row">
   <div class="col-md-12">
@@ -31,12 +62,12 @@
       <dd>
         <ul class="list-group">
           <% @movie.characters.each do |character| %>
-            <li class="list-group-item">
-              <a href="/actors/<%= character.actor_id %>">
-                <%= character.actor.name %>
-              </a>
-              (<%= character.name %>)
-            </li>
+          <li class="list-group-item">
+            <a href="/actors/<%= character.actor_id %>">
+              <%= character.actor.name %>
+            </a>
+            (<%= character.name %>)
+          </li>
           <% end %>
           <li class="list-group-item list-group-item-success">
             Add a new character
